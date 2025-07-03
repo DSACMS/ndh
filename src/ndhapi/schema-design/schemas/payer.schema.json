@@ -1,0 +1,36 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/payer.schema.json",
+    "title": "Payer",
+    "description": "Payer information",
+    "type": "object",
+    "properties": {
+        "payer_id": {
+            "description": "A numeric value that uniquely identifies health insurance payers",
+            "type": "integer"
+        },
+        "payer_name": {
+            "description": "The name of the payer",
+            "type": "string"
+        },
+        "plans": {
+            "description": "The plan_ids of the plans provided by the payer",
+            "items": {
+                "type": "integer"
+            }
+        },
+        "endpoints": {
+            "description": "Technical endpoints associated with the provider organization",
+            "type": "array",
+            "items": {
+                "$ref": "endpoints.schema.json"
+            }
+        }
+    },
+    "required": [
+        "payer_id",
+        "payer_name",
+        "plans",
+        "endpoints"
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/endpoint.schema.json",
+    "title": "Endpoint",
+    "description": "Technical endpoint information",
+    "type": "object",
+    "properties": {
+        "plan_id": {
+            "description": "An alphanumeric identifier of the healthcare plan",
+            "type": "string"
+        },
+        "hios_product_id": {
+            "description": "The Health Insurance and Oversight System identifier for the plan",
+            "type": "string"
+        },
+        "payer_id": {
+            "description": "A numeric identifier for the payer that manages the plan",
+            "type": "string"
+        },
+        "plan_marketing_name": {
+            "description": "The name that the plan goes by in marketing materials",
+            "type": "string"
+        },
+        "plan_type": {
+            "description": "The type of healthcare plan (e.g. HMO, PPO)",
+            "enum": [
+                "Indemnity",
+                "PPO",
+                "HMO",
+                "EPO",
+                "POS"
+            ]
+        }
+    },
+    "required": []
+}

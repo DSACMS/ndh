@@ -1,0 +1,62 @@
+{
+    "npi": 1962462846,
+    "first_name": "Robert",
+    "last_name": "Bergamini",
+    "middle_name": "A.",
+    "sex": "M",
+    "name_prefix": null,
+    "name_suffix": null,
+    "enumeration_date": "2006-03-24",
+    "last_updated_date": "2023-04-03",
+    "npi_status": "Active",
+    "languages": "en",
+    "taxonomies": [
+        {
+            "code": "208000000X",
+            "description": "Pediatrics",
+            "is_primary": true,
+            "license_number": "R9614",
+            "license_date": "",
+            "state_code": "MO",
+            "specialization": {
+                "code": "2080P0207X",
+                "description": "Pediatric Hematology-Oncology",
+                "is_primary": false,
+                "license_number": "R9614",
+                "license_date": "",
+                "state_code": "MO"
+            }
+        }
+    ],
+    "practice_relationships": {
+        "provider_organization_npi": 1508935891,
+        "provider_organization_name": "SSM Cardinal Glennon Children's Hospital",
+        "addresses": [
+            {
+                "countryCode": "US",
+                "countryName": "United States",
+                "addressPurpose": "LOCATION",
+                "addressType": "DOM",
+                "addressLine1": "1465 S GRAND BLVD",
+                "addressLine2": "",
+                "city": "SAINT LOUIS",
+                "state": "MO",
+                "postalCode": "631041003",
+                "teleNumber": "314-577-5600",
+                "address_type": "Practice Address",
+                "is_primary": true
+            }
+        ],
+        "endpoints": {
+            "description": "Technical endpoints associated with the provider based on their relationship with the given provider organization",
+            "type": "array",
+            "items": {
+                "$ref": "endpoints.schema.json"
+            }
+        },
+        "plans": [
+            "99129IL0120035"
+        ],
+        "is_accepting_new_patients": null
+    }
+}

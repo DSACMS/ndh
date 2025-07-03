@@ -1,0 +1,22 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/address.schema.json",
+    "title": "Address",
+    "description": "Address information",
+    "type": "object",
+    "properties": {
+        "address_type": {
+            "description": "The type of address (e.g. billing address, mailing address)",
+            "enum": [
+                "Billing address",
+                "Mailing Address",
+                "Practice Address"
+            ]
+        },
+        "is_primary": {
+            "description": "A flag for whether the given address is the primary address of the given address type",
+            "type": "boolean"
+        }
+    },
+    "required": []
+}

@@ -1,0 +1,55 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/plan.schema.json",
+    "title": "Plan",
+    "description": "Healthcare plan information",
+    "type": "object",
+    "properties": {
+        "plan_id": {
+            "description": "The Health Insurance and Oversight System unique identifier for the plan",
+            "type": "string"
+        },
+        "payer_id": {
+            "description": "A numeric identifier for the payer that manages the plan",
+            "type": "string"
+        },
+        "payer_name": {
+            "description": "The name of the payer that manages the plan",
+            "type": "string"
+        },
+        "plan_marketing_name": {
+            "description": "The name that the plan goes by in marketing materials",
+            "type": "string"
+        },
+        "plan_type": {
+            "description": "The type of healthcare plan (e.g. HMO, PPO)",
+            "enum": [
+                "Indemnity",
+                "PPO",
+                "HMO",
+                "EPO",
+                "POS"
+            ]
+        },
+        "summary_url": {
+            "description": "A URL that contains summary information about the plan",
+            "type": "string",
+            "format": "url"
+        },
+        "marketing_url": {
+            "description": "A URL that contains marketing information about the plan",
+            "type": "string",
+            "format": "url"
+        }
+    },
+    "required": [
+        "plan_id",
+        "hios_product_id",
+        "payer_id",
+        "payer_name",
+        "plan_marketing_name",
+        "plan_type",
+        "summary_url",
+        "marketing_url"
+    ]
+}

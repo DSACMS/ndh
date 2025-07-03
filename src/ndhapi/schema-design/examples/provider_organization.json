@@ -1,0 +1,73 @@
+{
+    "npi": 1508935891,
+    "name": "SSM Cardinal Glennon Children's Hospital",
+    "dba_names": [
+        "SSM HEALTH ST. MARY'S HOSPITAL - ST. LOUIS"
+    ],
+    "parent_organization_npi": 1487132015,
+    "parent_organization_name": "SSM HEALTH CARE CORPORATION",
+    "description": "",
+    "addresses": [
+        {
+            "countryCode": "US",
+            "countryName": "United States",
+            "addressPurpose": "LOCATION",
+            "addressType": "DOM",
+            "addressLine1": "1465 S GRAND BLVD",
+            "addressLine2": "",
+            "city": "SAINT LOUIS",
+            "state": "MO",
+            "postalCode": "631041003",
+            "teleNumber": "314-577-5600"
+        },
+        {
+            "countryCode": "US",
+            "countryName": "United States",
+            "addressPurpose": "MAILING",
+            "addressType": "DOM",
+            "addressLine1": "1465 S GRAND BLVD",
+            "addressLine2": "",
+            "city": "SAINT LOUIS",
+            "state": "MO",
+            "postalCode": "631041003",
+            "teleNumber": "314-577-5600"
+        }
+    ],
+    "enumeration_date": "2006-11-08",
+    "last_updated_date": "2023-11-27",
+    "npi_status": "Active",
+    "taxonomies": [
+        {
+            "code": "282NC2000X",
+            "description": "General Acute Care Hospital",
+            "is_primary": true,
+            "license_number": "429",
+            "license_date": "",
+            "state_code": "MO",
+            "specialization": null
+        }
+    ],
+    "providers": [
+        1962462846
+    ],
+    "endpoints": [
+        {
+            "endpointType": "CONNECT",
+            "endpointTypeDescription": "CONNECT URL",
+            "endpoint": "https://cobiusconnect.cobius.com:8291/Gateway/DocumentSubmission/2_0/NhinService/XDRRequest_Service",
+            "endpointDescription": "2.16.840.1.113883.3.1068.1",
+            "affiliation": "Y",
+            "use": "OTHER",
+            "useDescription": "Other",
+            "useOtherDescription": "CMS esMD eMDR",
+            "contentTypeDescription": "",
+            "countryCode": "US",
+            "countryName": "United States",
+            "addressType": "DOM",
+            "addressLine1": "2720 Dundee Rd # 302",
+            "city": "Northbrook",
+            "state": "IL",
+            "postalCode": "600622609"
+        }
+    ]
+}

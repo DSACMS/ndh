@@ -1,9 +1,0 @@
-{
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://example.com/provider_organization.schema.json",
-    "title": "Provider",
-    "description": "A medical professional who provides services",
-    "type": "object",
-    "properties": {},
-    "required": []
-}

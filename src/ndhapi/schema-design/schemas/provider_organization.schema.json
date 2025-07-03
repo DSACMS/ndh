@@ -1,0 +1,190 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/provider_organization.schema.json",
+    "title": "Provider Organization",
+    "description": "An organization, on behalf of which of medical professionals provide services",
+    "type": "object",
+    "properties": {
+        "npi": {
+            "description": "The National Provider Identifier that uniquely identifies the provider organization",
+            "type": "integer",
+            "minimum": 1000000000,
+            "maximum": 9999999999
+        },
+        "name": {
+            "description": "The name of the provider organization",
+            "type": "string"
+        },
+        "dba_names": {
+            "description": "A list of names, as which the provider organization does business",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "description": {
+            "description": "A brief description of the provider organization",
+            "type": "string"
+        },
+        "addresses": {
+            "description": "A list of addresses associated with the provider organization",
+            "type": "array",
+            "items": {
+                "$ref": "address.json"
+            }
+        },
+        "enumeration_date": {
+            "description": "The date when the provider received their NPI",
+            "type": "string",
+            "format": "date"
+        },
+        "last_updated_date": {
+            "description": "The date when the provider record was last updated",
+            "type": "string",
+            "format": "date"
+        },
+        "npi_status": {
+            "description": "The status of the provider's NPI",
+            "enum": [
+                "Active",
+                "Active with a pending change",
+                "Pending",
+                "In Progress",
+                "Rejected",
+                "Deactivated"
+            ]
+        },
+        "taxonomies": {
+            "description": "Provider taxonomy information",
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/taxonomy"
+            }
+        },
+        "providers": {
+            "description": "A list of NPIs belonging to providers that provide servies on behalf of the provider organization",
+            "type": "array",
+            "items": {
+                "minimum": 1000000000,
+                "maximum": 9999999999
+            }
+        },
+        "endpoints": {
+            "description": "Technical endpoints associated with the provider organization",
+            "type": "array",
+            "items": {
+                "$ref": "endpoints.schema.json"
+            }
+        }
+    },
+    "$defs": {
+        "taxonomy": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "Taxonomy code (from https://taxonomy.nucc.org/)",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Taxonomy name (from https://taxonomy.nucc.org/)",
+                    "type": "string"
+                },
+                "is_primary": {
+                    "description": "Indicator of whether the taxonomy is the provider's primary taxonomy",
+                    "type": "boolean"
+                },
+                "license_number": {
+                    "description": "License number assigned by a state licensing board, certifying the provider's taxonomy in that state",
+                    "type": "string"
+                },
+                "license_date": {
+                    "description": "The date when the state license was obtained",
+                    "type": "string",
+                    "format": "date"
+                },
+                "state_code": {
+                    "description": "The state that granted the provider's license for the taxonomy",
+                    "enum": [
+                        "AL",
+                        "AK",
+                        "AS",
+                        "AZ",
+                        "AR",
+                        "CA",
+                        "CO",
+                        "CT",
+                        "DE",
+                        "DC",
+                        "FM",
+                        "FL",
+                        "GA",
+                        "GU",
+                        "HI",
+                        "ID",
+                        "IL",
+                        "IN",
+                        "IA",
+                        "KS",
+                        "KY",
+                        "LA",
+                        "ME",
+                        "MH",
+                        "MD",
+                        "MA",
+                        "MI",
+                        "MN",
+                        "MS",
+                        "MO",
+                        "MT",
+                        "NE",
+                        "NV",
+                        "NH",
+                        "NJ",
+                        "NM",
+                        "NY",
+                        "NC",
+                        "ND",
+                        "MP",
+                        "OH",
+                        "OK",
+                        "OR",
+                        "PW",
+                        "PA",
+                        "PR",
+                        "RI",
+                        "SC",
+                        "SD",
+                        "TN",
+                        "TX",
+                        "UT",
+                        "VT",
+                        "VI",
+                        "VA",
+                        "WA",
+                        "WV",
+                        "WI",
+                        "WY"
+                    ]
+                },
+                "specialization": {
+                    "description": "Specialization within the taxonomy",
+                    "type": "object",
+                    "$ref": "#/$defs/taxonomy"
+                }
+            },
+            "required": [
+                "type",
+                "description",
+                "is_primary"
+            ]
+        }
+    },
+    "required": [
+        "npi",
+        "addresses",
+        "enumeration_date",
+        "last_updted_date",
+        "npi_status",
+        "taxonomies"
+    ]
+}
