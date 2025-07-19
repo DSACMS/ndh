@@ -145,16 +145,46 @@ class ImportExecutor:
     def find_env_file():
         """
         Find .env file in current directory or parent directory.
+        When scripts are invoked from a parent directory, look for .env
+        in the current working directory first (project root).
         
         Returns:
             str: Path to .env file or None if not found
         """
-        # Check current directory
+        # Check current working directory (project root when invoked from parent)
         current_dir_env = os.path.join(os.getcwd(), '.env')
         if os.path.exists(current_dir_env):
             return current_dir_env
         
-        # Check parent directory
+        # Get the directory of the calling script by walking up the stack
+        # to find the first frame that's not in the csviper package
+        import inspect
+        frame = inspect.currentframe()
+        script_dir = None
+        try:
+            while frame:
+                frame = frame.f_back
+                if frame and '__file__' in frame.f_globals:
+                    file_path = frame.f_globals['__file__']
+                    # Skip frames from the csviper package itself
+                    if 'csviper' not in file_path or file_path.endswith(('go.mysql.py', 'go.postgresql.py')):
+                        script_dir = os.path.dirname(os.path.abspath(file_path))
+                        break
+        finally:
+            del frame
+        
+        # Check script directory
+        if script_dir:
+            script_dir_env = os.path.join(script_dir, '.env')
+            if os.path.exists(script_dir_env):
+                return script_dir_env
+            
+            # Check parent of script directory
+            parent_dir_env = os.path.join(os.path.dirname(script_dir), '.env')
+            if os.path.exists(parent_dir_env):
+                return parent_dir_env
+        
+        # Fallback: Check parent directory of current working directory
         parent_dir_env = os.path.join(os.path.dirname(os.getcwd()), '.env')
         if os.path.exists(parent_dir_env):
             return parent_dir_env
@@ -165,16 +195,56 @@ class ImportExecutor:
     def check_gitignore_for_env():
         """
         Check if .env is excluded in local .gitignore file.
+        When scripts are invoked from a parent directory, look for .gitignore
+        in the current working directory first (project root).
         Warns if .env is not properly excluded.
         """
+        # Check current working directory (project root when invoked from parent)
         gitignore_path = os.path.join(os.getcwd(), '.gitignore')
         if os.path.exists(gitignore_path):
             with open(gitignore_path, 'r') as f:
                 gitignore_content = f.read()
                 if '.env' not in gitignore_content:
                     click.echo("Warning: .env file should be added to .gitignore to avoid committing credentials")
-        else:
-            click.echo("Warning: No .gitignore file found. Consider creating one and adding .env to it")
+            return
+        
+        # Get the directory of the calling script by walking up the stack
+        # to find the first frame that's not in the csviper package
+        import inspect
+        frame = inspect.currentframe()
+        script_dir = None
+        try:
+            while frame:
+                frame = frame.f_back
+                if frame and '__file__' in frame.f_globals:
+                    file_path = frame.f_globals['__file__']
+                    # Skip frames from the csviper package itself
+                    if 'csviper' not in file_path or file_path.endswith(('go.mysql.py', 'go.postgresql.py')):
+                        script_dir = os.path.dirname(os.path.abspath(file_path))
+                        break
+        finally:
+            del frame
+        
+        # Check script directory
+        if script_dir:
+            script_gitignore_path = os.path.join(script_dir, '.gitignore')
+            if os.path.exists(script_gitignore_path):
+                with open(script_gitignore_path, 'r') as f:
+                    gitignore_content = f.read()
+                    if '.env' not in gitignore_content:
+                        click.echo("Warning: .env file should be added to .gitignore to avoid committing credentials")
+                return
+            
+            # Check parent of script directory
+            parent_gitignore_path = os.path.join(os.path.dirname(script_dir), '.gitignore')
+            if os.path.exists(parent_gitignore_path):
+                with open(parent_gitignore_path, 'r') as f:
+                    gitignore_content = f.read()
+                    if '.env' not in gitignore_content:
+                        click.echo("Warning: .env file should be added to .gitignore to avoid committing credentials")
+                return
+        
+        click.echo("Warning: No .gitignore file found. Consider creating one and adding .env to it")
 
     @staticmethod
     def validate_csv_header(csv_file, expected_columns, encoding='utf-8', use_colors=True):

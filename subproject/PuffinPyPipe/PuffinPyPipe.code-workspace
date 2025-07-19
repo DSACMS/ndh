@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../plainerflow"
+		},
+		{
+			"path": "../csviper"
+		}
+	],
+	"settings": {
+		"python.pythonPath": "./venv/bin/python"
+	}
+}

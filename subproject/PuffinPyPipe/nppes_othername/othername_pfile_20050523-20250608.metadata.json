@@ -26,5 +26,7 @@
     "Provider Other Organization Name Type Code": 1
   },
   "total_columns": 3,
-  "column_headers_hash": "cec1b1abe20b70ea74dc3e3cb2320edc"
+  "column_headers_hash": "cec1b1abe20b70ea74dc3e3cb2320edc",
+  "file_glob_pattern": "othername_pfile_**[0-9].csv",
+  "recursive_search": true
 }

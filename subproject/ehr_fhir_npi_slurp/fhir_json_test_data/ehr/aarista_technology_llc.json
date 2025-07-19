@@ -1,0 +1,74 @@
+{
+  "resourceType": "Bundle",
+  "id": "209dabb7-e44f-4238-a11b-a07cc6e87449",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://emrfhirpresentation.aarista.com/fhir/r4/Endpoint/idFA6NjJ01p.WnqGN2lfXufQ",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "idFA6NjJ01p.WnqGN2lfXufQ",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://ihe.net/fhir/ihe.formatcode.fhir/CodeSystem/formatcode",
+                "code": "urn:ihe:pcc:xphr:2007"
+              }
+            ]
+          }
+        ],
+        "payloadMimeType": [
+          "application/fhir+json",
+          "application/json+fhir",
+          "application/xml+fhir",
+          "application/fhir+xml"
+        ],
+        "address": "https://emrfhirpresentation.aarista.com/fhir/aarista/basepractice/r4"
+      }
+    },
+    {
+      "fullUrl": "https://emrfhirpresentation.aarista.com/fhir/r4/Organization/idFA6NjJ01p.WnqGN2lfXufQ",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "idFA6NjJ01p.WnqGN2lfXufQ",
+        "identifier": [
+          {
+            "system": "https://aarista.com",
+            "value": "Aarista"
+          }
+        ],
+        "active": true,
+        "name": "Aarista",
+        "telecom": [
+          {
+            "system": "email",
+            "value": "support@aarista.com"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "2219 Rimland Drive",
+              "Suite 301"
+            ],
+            "city": "Bellingham",
+            "state": "WA",
+            "postalCode": "98226",
+            "country": "US"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/idFA6NjJ01p.WnqGN2lfXufQ"
+          }
+        ]
+      }
+    }
+  ]
+}

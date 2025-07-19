@@ -1,0 +1,43 @@
+{
+  "filename": "nucc_sources.csv",
+  "filename_without_extension": "nucc_sources",
+  "file_glob_pattern": "nucc_sources.csv",
+  "recursive_search": true,
+  "full_path": "/Users/ftrotter/gitgov/ftrotter/nucc_slurp/data/nucc_sources.csv",
+  "file_size_bytes": 233849,
+  "delimiter": ",",
+  "quote_character": "\"",
+  "encoding": "iso-8859-1",
+  "encoding_confidence": "high",
+  "encoding_notes": "Detected automatically. Can be manually overridden if needed.",
+  "original_column_names": [
+    "nucc_code_id",
+    "full_source_text",
+    "source_date",
+    "source_date_note",
+    "extracted_urls"
+  ],
+  "normalized_column_names": [
+    "nucc_code_id",
+    "full_source_text",
+    "source_date",
+    "source_date_note",
+    "extracted_urls"
+  ],
+  "column_name_mapping": {
+    "nucc_code_id": "nucc_code_id",
+    "full_source_text": "full_source_text",
+    "source_date": "source_date",
+    "source_date_note": "source_date_note",
+    "extracted_urls": "extracted_urls"
+  },
+  "max_column_lengths": {
+    "nucc_code_id": 4,
+    "full_source_text": 1347,
+    "source_date": 35,
+    "source_date_note": 93,
+    "extracted_urls": 110
+  },
+  "total_columns": 5,
+  "column_headers_hash": "f8c231236477ef0953a2eefd4d207d21"
+}

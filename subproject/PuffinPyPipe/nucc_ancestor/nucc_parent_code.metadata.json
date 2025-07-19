@@ -1,0 +1,31 @@
+{
+  "filename": "nucc_parent_code.csv",
+  "filename_without_extension": "nucc_parent_code",
+  "file_glob_pattern": "nucc_parent_code.csv",
+  "recursive_search": true,
+  "full_path": "/Users/ftrotter/gitgov/ftrotter/nucc_slurp/data/nucc_parent_code.csv",
+  "file_size_bytes": 34580,
+  "delimiter": ",",
+  "quote_character": "\"",
+  "encoding": "iso-8859-1",
+  "encoding_confidence": "high",
+  "encoding_notes": "Detected automatically. Can be manually overridden if needed.",
+  "original_column_names": [
+    "ancestor_nucc_code_id",
+    "child_nucc_code_id"
+  ],
+  "normalized_column_names": [
+    "ancestor_nucc_code_id",
+    "child_nucc_code_id"
+  ],
+  "column_name_mapping": {
+    "ancestor_nucc_code_id": "ancestor_nucc_code_id",
+    "child_nucc_code_id": "child_nucc_code_id"
+  },
+  "max_column_lengths": {
+    "ancestor_nucc_code_id": 4,
+    "child_nucc_code_id": 4
+  },
+  "total_columns": 2,
+  "column_headers_hash": "e9cefbee2cf4321bc969a327fe5c835d"
+}

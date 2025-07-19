@@ -45,6 +45,10 @@ class PostgreSQLSchemaGenerator(BaseSchemaGenerator):
         """
         sql_parts = []
         
+        # Add overwrite control comment as first line
+        sql_parts.append("-- OverwriteThisOnNextCompile=True")
+        sql_parts.append("")
+        
         # Note: CREATE DATABASE is not included here as it cannot run inside a transaction
         # The database should already exist when connecting
         

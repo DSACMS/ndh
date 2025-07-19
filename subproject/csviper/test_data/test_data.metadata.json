@@ -1,10 +1,15 @@
 {
   "filename": "test_data.csv",
   "filename_without_extension": "test_data",
+  "file_glob_pattern": "test_data.csv",
+  "recursive_search": true,
   "full_path": "/Users/ftrotter/gitgov/ftrotter/csviper/test_data.csv",
   "file_size_bytes": 310,
   "delimiter": ",",
   "quote_character": "\"",
+  "encoding": "iso-8859-1",
+  "encoding_confidence": "high",
+  "encoding_notes": "Detected automatically. Can be manually overridden if needed.",
   "original_column_names": [
     "Full Name",
     "Age",
@@ -14,7 +19,7 @@
     "Salary ($)"
   ],
   "normalized_column_names": [
-    "person_full_name",
+    "full_name",
     "age",
     "email_address",
     "phone_number",
@@ -22,7 +27,7 @@
     "salary"
   ],
   "column_name_mapping": {
-    "Full Name": "person_full_name",
+    "Full Name": "full_name",
     "Age": "age",
     "Email Address": "email_address",
     "Phone Number": "phone_number",

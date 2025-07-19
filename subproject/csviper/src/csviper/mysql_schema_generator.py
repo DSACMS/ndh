@@ -45,6 +45,10 @@ class MySQLSchemaGenerator(BaseSchemaGenerator):
         """
         sql_parts = []
         
+        # Add overwrite control comment as first line
+        sql_parts.append("-- OverwriteThisOnNextCompile=True")
+        sql_parts.append("")
+        
         # CREATE DATABASE statement
         sql_parts.append("CREATE DATABASE IF NOT EXISTS REPLACE_ME_DB_NAME;")
         sql_parts.append("")

@@ -1,0 +1,192 @@
+Vendor,Reachable,Has ONPI,HTTPS ORG URL,Findable Metadata,Findable SMART,Findable OpenAPI Docs,Findable OpenAPI JSON,Findable Swagger,Findable Swagger JSON
+"CloudCraft, LLC",True,True,True,https://fhirapi.naiacorp.net/metadata,https://fhirapi.naiacorp.net/.well-known/smart-configuration,https://fhirapi.naiacorp.net/api-docs,https://fhirapi.naiacorp.net/openapi.json,https://fhirapi.naiacorp.net/swagger,https://fhirapi.naiacorp.net/swagger.json
+drchrono Inc.,True,True,True,https://drchrono-fhirpresentation.everhealthsoftware.com/fhir/metadata,https://drchrono-fhirpresentation.everhealthsoftware.com/fhir/.well-known/smart-configuration,https://drchrono-fhirpresentation.everhealthsoftware.com/api-docs,https://drchrono-fhirpresentation.everhealthsoftware.com/openapi.json,https://drchrono-fhirpresentation.everhealthsoftware.com/swagger,https://drchrono-fhirpresentation.everhealthsoftware.com/swagger.json
+"DSS, Inc.",True,True,True,https://fhirjuno-prod-web.dssinc.com/metadata,https://fhirjuno-prod-web.dssinc.com/.well-known/smart-configuration,https://fhirjuno-prod-web.dssinc.com/api-docs,https://fhirjuno-prod-web.dssinc.com/openapi.json,https://fhirjuno-prod-web.dssinc.com/swagger,https://fhirjuno-prod-web.dssinc.com/swagger.json
+Enable Healthcare Inc.,True,True,True,https://ehifhir.ehiconnect.com/metadata,https://ehifhir.ehiconnect.com/.well-known/smart-configuration,https://ehifhir.ehiconnect.com/api-docs,https://ehifhir.ehiconnect.com/openapi.json,https://ehifhir.ehiconnect.com/swagger,https://ehifhir.ehiconnect.com/swagger.json
+EnableDoc LLC,True,True,True,https://api.enablemyhealth.com/metadata,https://api.enablemyhealth.com/api/r4/.well-known/smart-configuration,https://api.enablemyhealth.com/api/r4/Organization/api-docs,https://api.enablemyhealth.com/api/r4/Organization/openapi.json,https://api.enablemyhealth.com/api/r4/Organization/swagger,https://api.enablemyhealth.com/api/r4/Organization/swagger.json
+"Health Innovation Technologies, Inc.",True,True,True,https://revolutionehr.dynamicfhir.com/metadata,https://revolutionehr.dynamicfhir.com/.well-known/smart-configuration,https://revolutionehr.dynamicfhir.com/api-docs,https://revolutionehr.dynamicfhir.com/openapi.json,https://revolutionehr.dynamicfhir.com/swagger,https://revolutionehr.dynamicfhir.com/swagger.json
+iSALUS Healthcare,True,True,True,https://isalus-fhirpresentation.everhealthsoftware.com/metadata,https://isalus-fhirpresentation.everhealthsoftware.com/.well-known/smart-configuration,https://isalus-fhirpresentation.everhealthsoftware.com/api-docs,https://isalus-fhirpresentation.everhealthsoftware.com/openapi.json,https://isalus-fhirpresentation.everhealthsoftware.com/swagger,https://isalus-fhirpresentation.everhealthsoftware.com/swagger.json
+"MedConnect, Inc.",True,True,True,https://api.medconnecthealth.com/metadata,https://api.medconnecthealth.com/.well-known/smart-configuration,https://api.medconnecthealth.com/api-docs,https://api.medconnecthealth.com/openapi.json,https://api.medconnecthealth.com/swagger,https://api.medconnecthealth.com/swagger.json
+"myhELO, Inc.",True,True,True,https://provider.myhelo.com/metadata,https://provider.myhelo.com/.well-known/smart-configuration,https://provider.myhelo.com/api-docs,https://provider.myhelo.com/openapi.json,https://provider.myhelo.com/swagger,https://provider.myhelo.com/swagger.json
+Streamline Healthcare Solutions,True,True,True,https://dhfhirpresentation.smartcarenet.com/metadata,https://dhfhirpresentation.smartcarenet.com/.well-known/smart-configuration,https://dhfhirpresentation.smartcarenet.com/api-docs,https://dhfhirpresentation.smartcarenet.com/openapi.json,https://dhfhirpresentation.smartcarenet.com/swagger,https://dhfhirpresentation.smartcarenet.com/swagger.json
+Unknown,True,True,True,https://fhir.nextgen.com/nge/prod/fhir-api-r4/fhir/R4/metadata,https://fhir.nextgen.com/nge/prod/fhir-api-r4/fhir/R4/.well-known/smart-configuration,https://ice3.mychn.org/apis/api-docs,https://ice3.mychn.org/apis/openapi.json,https://ice3.mychn.org/swagger,https://ice3.mychn.org/apis/swagger.json
+"EyeMD EMR Healthcare Systems, Inc.",True,True,True,https://smartonfhir.myeyecarerecords.com/fhir/Organization/metadata,https://smartonfhir.myeyecarerecords.com/fhir/Organization/.well-known/smart-configuration,https://smartonfhir.myeyecarerecords.com/fhir/Organization/api-docs,https://smartonfhir.myeyecarerecords.com/fhir/Organization/openapi.json,False,False
+MaxRemind Inc,True,True,True,https://fhir.maximus.care/api/metadata,https://fhir.maximus.care/api/.well-known/smart-configuration,False,False,https://fhir.maximus.care/swagger,False
+Medcare MSO,True,True,True,https://fhirapi.medcaremso.com/api/R4/metadata,https://fhirapi.medcaremso.com/api/R4/.well-known/smart-configuration,False,False,https://fhirapi.medcaremso.com/api/R4/swagger,False
+Mendelson Kornblum Orthopedic & Spine Specialists,True,True,True,https://fhir.mkoss.com/fhir/metadata,https://fhir.mkoss.com/fhir/.well-known/smart-configuration,False,False,https://fhir.mkoss.com/swagger,False
+"TruBridge, Inc.",True,True,True,https://fhir-usa.unify.chbase.com/metadata,https://fhir-usa.unify.chbase.com/.well-known/smart-configuration,False,False,https://fhir-usa.unify.chbase.com/swagger,False
+Avon Health,True,True,True,https://trial.avonhealth.com/fhir/metadata,https://trial.avonhealth.com/fhir/.well-known/smart-configuration,False,False,False,False
+"CureMD.com, Inc.",True,True,True,https://fhirendpoint.curemd.net/fhir/metadata,https://fhirendpoint.curemd.net/fhir/.well-known/smart-configuration,False,False,False,False
+Cyfluent,True,True,True,https://www.cyfluentphr.com/fhirapi/HBSH/r4/metadata,https://www.cyfluentphr.com/fhirapi/HBSH/r4/.well-known/smart-configuration,False,False,False,False
+EDENLAB OÜ,True,True,True,https://staging.pemr.com:93/api/metadata,https://staging.pemr.com:93/api/.well-known/smart-configuration,False,False,False,False
+Flatiron Health,True,True,True,https://fhir.prod.flatiron.io/fhir/metadata,https://fhir.prod.flatiron.io/fhir/.well-known/smart-configuration,False,False,False,False
+"GeniusDoc, Inc.",True,True,True,https://api.geniusdoc.com:4434/GDAPIData/metadata,https://api.geniusdoc.com:4434/GDAPIData/.well-known/smart-configuration,False,False,False,False
+Net Health,True,True,True,https://sfp-fhirprod.azurewebsites.net/fhir/metadata,https://sfp-fhirprod.azurewebsites.net/fhir/.well-known/smart-configuration,False,False,False,False
+"Theoria Medical, PLLC",True,True,True,https://theoriamedical-api.charteasy.com/fhir/metadata,https://theoriamedical-api.charteasy.com/fhir/.well-known/smart-configuration,False,False,False,False
+WRS Health,True,True,True,https://fhir-server.sam.wrs.dev/r4/metadata,https://fhir-server.sam.wrs.dev/r4/.well-known/smart-configuration,False,False,False,False
+InteliChart LLC,True,True,True,False,False,False,False,https://fhirapi.intelichart.com/swagger,False
+AdvancedMD,True,False,True,False,False,False,False,False,False
+agilon health inc.,True,False,True,False,False,False,False,False,False
+AssureCare LLC,False,True,True,False,False,False,False,False,False
+"DigiDMS, Inc.",False,True,True,False,False,False,False,False,False
+DOX EMR,True,False,True,False,False,False,False,False,False
+"Dynamic Health IT, Inc",False,True,True,False,False,False,False,False,False
+"ezCaretech Co., Ltd.",False,True,True,False,False,False,False,False,False
+ezEMRx Inc,False,True,True,False,False,False,False,False,False
+"Integra Connect Newco, LLC",True,False,True,False,False,False,False,False,False
+"MD Synergy Solutions, LLC",True,False,True,False,False,False,False,False,False
+"MedAZ.Net, LLC",False,True,True,False,False,False,False,False,False
+Office Practicum,False,True,True,False,False,False,False,False,False
+"Sevocity, a division of Conceptual MindWorks, Inc",True,False,True,False,False,False,False,False,False
+"SolidPractice Technologies, LLC",False,True,True,False,False,False,False,False,False
+"TechSoft, Inc.",True,False,True,False,False,False,False,False,False
+"1Life Healthcare, Inc",False,False,False,False,False,False,False,False,False
+Aarista Technology LLC,False,False,False,False,False,False,False,False,False
+"Abeo Solutions, Inc",False,False,False,False,False,False,False,False,False
+"Acurus Solutions, Inc.",False,False,False,False,False,False,False,False,False
+"Adaptamed, LLC",False,False,False,False,False,False,False,False,False
+Advanced Data Systems Corporation,False,False,False,False,False,False,False,False,False
+"Agastha, Inc.",False,False,False,False,False,False,False,False,False
+"AllegianceMD Software, Inc.",False,False,False,False,False,False,False,False,False
+Altera Digital Health Inc.,False,False,False,False,False,False,False,False,False
+"Applied Research Works, Inc.",False,False,False,False,False,False,False,False,False
+ASP.MD Inc.,False,False,False,False,False,False,False,False,False
+"Astronaut, LLC",False,False,False,False,False,False,False,False,False
+"athenahealth, Inc.",False,False,False,False,False,False,False,False,False
+Axxess,False,False,False,False,False,False,False,False,False
+Azalea Health,False,False,False,False,False,False,False,False,False
+Benchmark Systems,False,False,False,False,False,False,False,False,False
+Bizmatics Inc.,False,False,False,False,False,False,False,False,False
+Braintree Health,False,False,False,False,False,False,False,False,False
+Brilogy Corporation,False,False,False,False,False,False,False,False,False
+BroadStreet Health LLC,False,False,False,False,False,False,False,False,False
+"Canvas Medical, Inc.",False,False,False,False,False,False,False,False,False
+"CareCloud Health, Inc.",False,False,False,False,False,False,False,False,False
+"CareEvolution, Inc.",False,False,False,False,False,False,False,False,False
+Careexpand LLC,False,False,False,False,False,False,False,False,False
+Carefluence,False,False,False,False,False,False,False,False,False
+Carepaths Inc,False,False,False,False,False,False,False,False,False
+"CareTracker, Inc.",False,False,False,False,False,False,False,False,False
+Cerner Corporation,False,False,False,False,False,False,False,False,False
+"ChartPath, LLC",False,False,False,False,False,False,False,False,False
+CHN Tech Solutions LLC,False,False,False,False,False,False,False,False,False
+"CitiusTech, Inc.",False,False,False,False,False,False,False,False,False
+"Claimpower, Inc.",False,False,False,False,False,False,False,False,False
+"CliniComp, Intl.",False,False,False,False,False,False,False,False,False
+CompuGroup Medical US,False,False,False,False,False,False,False,False,False
+Compulink Healthcare Solutions,False,False,False,False,False,False,False,False,False
+Comtron Inc.,False,False,False,False,False,False,False,False,False
+Darena Solutions LLC,False,False,False,False,False,False,False,False,False
+Doc-tor.com,False,False,False,False,False,False,False,False,False
+"E*HealthLine.com, Inc.",False,False,False,False,False,False,False,False,False
+"eClinicalWorks, LLC",False,False,False,False,False,False,False,False,False
+eDerm Systems LLC,False,False,False,False,False,False,False,False,False
+Edvak Technologies Inc,False,False,False,False,False,False,False,False,False
+eHana,False,False,False,False,False,False,False,False,False
+"EHNOTE,INC",False,False,False,False,False,False,False,False,False
+"Elation Health, Inc.",False,False,False,False,False,False,False,False,False
+Elekta Inc.,False,False,False,False,False,False,False,False,False
+eMedPractice LLC,False,False,False,False,False,False,False,False,False
+"EndoSoft, LLC",False,False,False,False,False,False,False,False,False
+"EnSoftek, Inc",False,False,False,False,False,False,False,False,False
+Epic Systems Corporation,False,False,False,False,False,False,False,False,False
+"Eyefinity, Inc.",False,False,False,False,False,False,False,False,False
+Firely USA Inc.,False,False,False,False,False,False,False,False,False
+First Insight Corporation,False,False,False,False,False,False,False,False,False
+"Foothold Technology, Inc.",False,False,False,False,False,False,False,False,False
+Genensys LLC,False,False,False,False,False,False,False,False,False
+Glenwood Systems LLC,False,False,False,False,False,False,False,False,False
+"Greenway Health, LLC",False,False,False,False,False,False,False,False,False
+"Harris CareTracker, Inc",False,False,False,False,False,False,False,False,False
+"Healogics, Inc.",False,False,False,False,False,False,False,False,False
+"Health Care 2000, Inc.",False,False,False,False,False,False,False,False,False
+"Health Care Systems, Inc.",False,False,False,False,False,False,False,False,False
+"Health Information Management Systems, LLC",False,False,False,False,False,False,False,False,False
+"Health Samurai, Inc.",False,False,False,False,False,False,False,False,False
+"Health Systems Technology, Inc.",False,False,False,False,False,False,False,False,False
+Healthie,False,False,False,False,False,False,False,False,False
+Helixbeat,False,False,False,False,False,False,False,False,False
+"i3 Healthcare Solutions, LLC",False,False,False,False,False,False,False,False,False
+"iCare.com, Inc.",False,False,False,False,False,False,False,False,False
+Indian Health Service,False,False,False,False,False,False,False,False,False
+Inmediata Health Group LLC,False,False,False,False,False,False,False,False,False
+InPracSys,False,False,False,False,False,False,False,False,False
+Kaiser Permanente/CIDS,False,False,False,False,False,False,False,False,False
+Kanrad Technologies Inc,False,False,False,False,False,False,False,False,False
+"Keiser Computers, Inc.",False,False,False,False,False,False,False,False,False
+"Lille Group, Inc.",False,False,False,False,False,False,False,False,False
+MassLight,False,False,False,False,False,False,False,False,False
+McKesson Specialty Health Technology Products LLC (Ontada),False,False,False,False,False,False,False,False,False
+"MD Charts, LLC",False,False,False,False,False,False,False,False,False
+"MD Logic, Inc.",False,False,False,False,False,False,False,False,False
+"MDFlow EHR, LLC DBA: MDFlow Systems",False,False,False,False,False,False,False,False,False
+MDLAND,False,False,False,False,False,False,False,False,False
+MDOfficeManager,False,False,False,False,False,False,False,False,False
+"MEDENT - Community Computer Service, Inc.",False,False,False,False,False,False,False,False,False
+MEDHOST,False,False,False,False,False,False,False,False,False
+"Medi-EHR, LLC",False,False,False,False,False,False,False,False,False
+Medical Informatics Engineering,False,False,False,False,False,False,False,False,False
+"Medical Information Technology, Inc. (MEDITECH)",False,False,False,False,False,False,False,False,False
+MedicalMine Inc.,False,False,False,False,False,False,False,False,False
+"MedicaSoft, LLC",False,False,False,False,False,False,False,False,False
+"Medicus Clinical, LLC",False,False,False,False,False,False,False,False,False
+"MediFusion, LLC",False,False,False,False,False,False,False,False,False
+MedOne Healthcare Partners,False,False,False,False,False,False,False,False,False
+MedPharm Services LLC,False,False,False,False,False,False,False,False,False
+Medplum,False,False,False,False,False,False,False,False,False
+Metasolutions Inc,False,False,False,False,False,False,False,False,False
+"MicroFour, Inc.",False,False,False,False,False,False,False,False,False
+"MicroMD, LLC",False,False,False,False,False,False,False,False,False
+"Modernizing Medicine Gastroenterology, LLC",False,False,False,False,False,False,False,False,False
+ModuleMD,False,False,False,False,False,False,False,False,False
+"Moyae, Inc.",False,False,False,False,False,False,False,False,False
+"NaphCare, Inc.",False,False,False,False,False,False,False,False,False
+"Navigating Cancer, LLC",False,False,False,False,False,False,False,False,False
+Netsmart Technologies,False,False,False,False,False,False,False,False,False
+Nextech,False,False,False,False,False,False,False,False,False
+NextGen Healthcare,False,False,False,False,False,False,False,False,False
+"NovoMedici, LLC",False,False,False,False,False,False,False,False,False
+"Nth Technologies, Inc.",False,False,False,False,False,False,False,False,False
+"Objective Medical Systems, LLC",False,False,False,False,False,False,False,False,False
+OmniMD Inc.,False,False,False,False,False,False,False,False,False
+"OT EMR, Inc.",False,False,False,False,False,False,False,False,False
+Patagonia Health,False,False,False,False,False,False,False,False,False
+PCE Systems,False,False,False,False,False,False,False,False,False
+PCIS GOLD,False,False,False,False,False,False,False,False,False
+PointClickCare Technologies Inc.,False,False,False,False,False,False,False,False,False
+"Practice Alternatives, Inc.",False,False,False,False,False,False,False,False,False
+Practice EHR LLC,False,False,False,False,False,False,False,False,False
+Practice Fusion,False,False,False,False,False,False,False,False,False
+"PracticeSuite, Inc.",False,False,False,False,False,False,False,False,False
+"Prime Clinical Systems, Inc.",False,False,False,False,False,False,False,False,False
+Procentive,False,False,False,False,False,False,False,False,False
+"Pulse Systems, Inc",False,False,False,False,False,False,False,False,False
+"Qualifacts Systems, LLC",False,False,False,False,False,False,False,False,False
+"Radysans, Inc",False,False,False,False,False,False,False,False,False
+"ReLi Med Solutions, LLC",False,False,False,False,False,False,False,False,False
+"Royal Health, Inc.",False,False,False,False,False,False,False,False,False
+Saisystems International,False,False,False,False,False,False,False,False,False
+Smile CDR Inc. (doing business as Smile Digital Health),False,False,False,False,False,False,False,False,False
+"Softbir, Inc.",False,False,False,False,False,False,False,False,False
+"Sophrona Solutions, Inc.",False,False,False,False,False,False,False,False,False
+"Strateq Health, Inc.",False,False,False,False,False,False,False,False,False
+"StreamlineMD, LLC",False,False,False,False,False,False,False,False,False
+Systemedx Inc,False,False,False,False,False,False,False,False,False
+"Tebra Technologies, Inc.",False,False,False,False,False,False,False,False,False
+TenEleven Group,False,False,False,False,False,False,False,False,False
+Tenzing Medical LLC,False,False,False,False,False,False,False,False,False
+The Echo Group,False,False,False,False,False,False,False,False,False
+TRIARQ Practice Services,False,False,False,False,False,False,False,False,False
+TriMed Technologies,False,False,False,False,False,False,False,False,False
+TronsHealth LLC,False,False,False,False,False,False,False,False,False
+"US Monitoring, Inc.",False,False,False,False,False,False,False,False,False
+Varian Medical Systems,False,False,False,False,False,False,False,False,False
+Veradigm,False,False,False,False,False,False,False,False,False
+VersaSuite,False,False,False,False,False,False,False,False,False
+"VIPA Health Solutions, LLC",False,False,False,False,False,False,False,False,False
+Vision Infonet Inc,False,False,False,False,False,False,False,False,False
+"Vohra Wound Physicians Management, LLC",False,False,False,False,False,False,False,False,False
+"WEBeDoctor, Inc.",False,False,False,False,False,False,False,False,False
+"Welligent, Part of the ContinuumCloud",False,False,False,False,False,False,False,False,False
+Willowglade Technologies Corporation,False,False,False,False,False,False,False,False,False
+Zoobook Systems LLC,False,False,False,False,False,False,False,False,False

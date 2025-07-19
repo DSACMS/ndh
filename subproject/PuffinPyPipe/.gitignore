@@ -129,6 +129,7 @@ celerybeat.pid
 
 # Environments
 .env
+setup.env
 .venv
 env/
 venv/
@@ -205,3 +206,6 @@ cython_debug/
 .*.swp
 .*.swo
 .*.swn
+
+
+out

@@ -1,0 +1,13 @@
+LOAD DATA LOCAL INFILE 'REPLACE_ME_CSV_FULL_PATH'
+INTO TABLE REPLACE_ME_DB_NAME.REPLACE_ME_TABLE_NAME
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES
+(
+    @org_fhir_url, @npi
+)
+SET
+    `org_fhir_url` = NULLIF(@org_fhir_url, ''),
+    `npi` = NULLIF(@npi, '')
+;

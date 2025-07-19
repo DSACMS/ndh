@@ -15,7 +15,7 @@ CREATE TABLE REPLACE_ME_DB_NAME.REPLACE_ME_TABLE_NAME (
     "content_description" VARCHAR(6),
     "other_content_description" VARCHAR(201),
     "affiliation_address_line_1" VARCHAR(56),
-    "affiliation_address_line_1" VARCHAR(56),
+    "affiliation_address_line_2" VARCHAR(56),
     "affiliation_address_city" VARCHAR(32),
     "affiliation_address_state" VARCHAR(26),
     "affiliation_address_country" VARCHAR(3),

@@ -1,0 +1,31 @@
+{
+  "filename": "clean_npi_to_org_fhir_url.csv",
+  "filename_without_extension": "clean_npi_to_org_fhir_url",
+  "file_glob_pattern": "clean_npi_to_org_fhir_url.csv",
+  "recursive_search": true,
+  "full_path": "/Users/ftrotter/gitgov/ftrotter/ehr_fhir_npi_slurp/data/output_data/clean_npi_to_org_fhir_url.csv",
+  "file_size_bytes": 208049,
+  "delimiter": ",",
+  "quote_character": "\"",
+  "encoding": "iso-8859-1",
+  "encoding_confidence": "high",
+  "encoding_notes": "Detected automatically. Can be manually overridden if needed.",
+  "original_column_names": [
+    "org_fhir_url",
+    "npi"
+  ],
+  "normalized_column_names": [
+    "org_fhir_url",
+    "npi"
+  ],
+  "column_name_mapping": {
+    "org_fhir_url": "org_fhir_url",
+    "npi": "npi"
+  },
+  "max_column_lengths": {
+    "org_fhir_url": 155,
+    "npi": 10
+  },
+  "total_columns": 2,
+  "column_headers_hash": "a065565f8ba7bc641c59df86ff4a06bb"
+}

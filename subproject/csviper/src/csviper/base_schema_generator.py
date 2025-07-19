@@ -20,7 +20,7 @@ class BaseSchemaGenerator:
     
     @staticmethod
     def fromMetadataToSQL(metadata_json_path: str, output_dir: str, overwrite_previous: bool = False, 
-                         db_type: str = None, generator_class=None) -> Dict[str, str]:
+                         db_type: str = "", generator_class=None) -> Dict[str, str]:
         """
         Generate SQL scripts from metadata JSON file using database-specific generator.
         
@@ -99,15 +99,23 @@ class BaseSchemaGenerator:
         create_table_file = os.path.join(output_dir, f"{filename_base}.create_table_{db_extension}.sql")
         import_data_file = os.path.join(output_dir, f"{filename_base}.import_data_{db_extension}.sql")
         
-        # Write CREATE TABLE SQL
-        with open(create_table_file, 'w', encoding='utf-8') as f:
-            f.write(create_table_sql)
+        # Check if CREATE TABLE file should be overwritten
+        should_write_create_table = BaseSchemaGenerator._should_overwrite_create_table_file(
+            create_table_file, overwrite_previous
+        )
+        
+        # Write CREATE TABLE SQL only if allowed
+        if should_write_create_table:
+            with open(create_table_file, 'w', encoding='utf-8') as f:
+                f.write(create_table_sql)
+            print(f"Generated {db_type.upper()} CREATE TABLE SQL: {create_table_file}")
+        else:
+            print(f"Skipping {db_type.upper()} CREATE TABLE SQL (already exists and not set to overwrite): {create_table_file}")
         
         # Write IMPORT DATA SQL
         with open(import_data_file, 'w', encoding='utf-8') as f:
             f.write(import_sql)
         
-        print(f"Generated {db_type.upper()} CREATE TABLE SQL: {create_table_file}")
         print(f"Generated {db_type.upper()} IMPORT DATA SQL: {import_data_file}")
         
         # Create post-import SQL directory structure
@@ -253,3 +261,48 @@ class BaseSchemaGenerator:
         print(f"Cached {db_type.upper()} IMPORT DATA SQL: {os.path.basename(cache_file)}")
         
         return import_sql
+    
+    @staticmethod
+    def _should_overwrite_create_table_file(create_table_file_path: str, overwrite_previous: bool) -> bool:
+        """
+        Check if the CREATE TABLE file should be overwritten based on the overwrite comment.
+        
+        Args:
+            create_table_file_path (str): Path to the CREATE TABLE SQL file
+            overwrite_previous (bool): Whether to force overwrite (ignores comment)
+            
+        Returns:
+            bool: True if file should be overwritten, False otherwise
+        """
+        # If overwrite_previous is True, always overwrite
+        if overwrite_previous:
+            return True
+        
+        # If file doesn't exist, allow creation
+        if not os.path.exists(create_table_file_path):
+            return True
+        
+        # Read the first line to check for overwrite comment
+        try:
+            with open(create_table_file_path, 'r', encoding='utf-8') as f:
+                first_line = f.readline().strip()
+                
+            # Check if first line contains the overwrite comment
+            if first_line.startswith('-- OverwriteThisOnNextCompile='):
+                # Extract the value after the equals sign
+                value = first_line.split('=', 1)[1].strip()
+                
+                # Only overwrite if the value is exactly 'True'
+                if value == 'True':
+                    return True
+                else:
+                    return False
+            else:
+                # If no overwrite comment found, assume it's safe to overwrite
+                # This handles existing files that don't have the comment yet
+                return True
+                
+        except (IOError, OSError) as e:
+            print(f"Warning: Could not read CREATE TABLE file {create_table_file_path}: {e}")
+            # If we can't read the file, err on the side of caution and don't overwrite
+            return False

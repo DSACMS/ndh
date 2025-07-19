@@ -1,0 +1,18 @@
+# Local editable installs - these will install the libraries in development mode
+# so changes to the source code will be immediately available
+-e ../csviper
+-e ../plainerflow
+
+# Additional dependencies that may be needed
+python-dotenv>=1.0.0
+chardet>=5.0.0
+pandas>=2.0.0
+great-expectations>=0.18.0
+phonenumbers>=8.13.0
+
+# Database drivers (install as needed)
+# For MySQL support:
+# pymysql>=1.0.0
+
+# For PostgreSQL support:
+# psycopg2-binary>=2.8.0

@@ -90,5 +90,7 @@
     "Affiliation Address Postal Code": 13
   },
   "total_columns": 19,
-  "column_headers_hash": "fcc4043722421687aaa6d4188d1b6775"
+  "column_headers_hash": "fcc4043722421687aaa6d4188d1b6775",
+  "file_glob_pattern": "endpoint_pfile_**[0-9].csv",
+  "recursive_search": true
 }

@@ -1,0 +1,8 @@
+-- OverwriteThisOnNextCompile=True
+
+DROP TABLE IF EXISTS REPLACE_ME_DB_NAME.REPLACE_ME_TABLE_NAME;
+
+CREATE TABLE REPLACE_ME_DB_NAME.REPLACE_ME_TABLE_NAME (
+    "reasgn_bnft_enrlmt_id" VARCHAR(16),
+    "rcv_bnft_enrlmt_id" VARCHAR(16)
+);

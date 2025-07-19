@@ -1,10 +1,15 @@
 {
   "filename": "pl_pfile_20050523-20250608.csv",
   "filename_without_extension": "pl_pfile_20050523-20250608",
-  "full_path": "/Users/ftrotter/Downloads/NPPES_Data_Dissemination_June_2025_V2/pl_pfile_20050523-20250608.csv",
+  "file_glob_pattern": "pl_pfile_20050523-20250608.csv",
+  "recursive_search": true,
+  "full_path": "/Users/ftrotter/nppes_data/NPPES_Data_Dissemination_June_2025_V2/pl_pfile_20050523-20250608.csv",
   "file_size_bytes": 98787747,
   "delimiter": ",",
   "quote_character": "\"",
+  "encoding": "iso-8859-1",
+  "encoding_confidence": "high",
+  "encoding_notes": "Detected automatically. Can be manually overridden if needed.",
   "original_column_names": [
     "NPI",
     "Provider Secondary Practice Location Address- Address Line 1",

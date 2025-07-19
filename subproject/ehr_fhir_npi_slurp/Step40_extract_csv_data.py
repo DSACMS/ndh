@@ -23,10 +23,10 @@ NPIs are always 10 digits and usually have the "system" value of "http://hl7.org
 Put all of the resulting csv files in ./data/normalized_csv_files
 
 NPI Validation:
-NPIs are currently validated for format only (10-digit requirement).
-API validation against the CMS NPI Registry has been disabled for performance reasons.
-The validation columns (api_error, result_count) contain placeholder values ('?') for future implementation.
-Format validation results are included in the is_invalid_npi field (0=valid format, 1=invalid format).
+NPIs are validated using the NPIValidator class which provides both format validation and API validation.
+The NPIValidator maintains a cache of previously validated NPIs in ./prod_data/valid_npi_list.csv
+to avoid repeated API calls. New NPIs are validated against the CMS NPI Registry API and results
+are cached for future use. The is_invalid_npi field indicates: 0=valid NPI, 1=invalid NPI.
 
 Test Mode:
 Use the --test flag to run in test mode, which only processes the first 1000 files per EHR vendor.
@@ -51,79 +51,10 @@ import requests
 import time
 import phonenumbers
 from phonenumbers import NumberParseException
+from NPIValidator import NPIValidator
 
-def is_valid_npi_format(npi_value):
-    """Check if NPI is exactly 10 digits"""
-    if not npi_value:
-        return False
-    # Remove any non-digit characters and check if it's exactly 10 digits
-    digits_only = re.sub(r'\D', '', str(npi_value))
-    return len(digits_only) == 10
-
-def validate_npi_via_api(npi_value, max_retries=3, delay=0.1):
-    """
-    Validate NPI against the CMS NPI Registry API
-    Returns dict with validation results
-    """
-    if not is_valid_npi_format(npi_value):
-        return {
-            'is_valid_format': False,
-            'is_valid_api': False,
-            'api_error': 'Invalid NPI format',
-            'result_count': 0
-        }
-    
-    # Clean the NPI value to digits only
-    clean_npi = re.sub(r'\D', '', str(npi_value))
-    
-    url = f"https://npiregistry.cms.hhs.gov/api/?version=2.1&number={clean_npi}"
-    
-    for attempt in range(max_retries):
-        try:
-            # Add a small delay to be respectful to the API
-            if attempt > 0:
-                time.sleep(delay * (2 ** attempt))  # Exponential backoff
-            
-            response = requests.get(url, timeout=10)
-            response.raise_for_status()
-            
-            data = response.json()
-            result_count = data.get('result_count', 0)
-            
-            return {
-                'is_valid_format': True,
-                'is_valid_api': result_count > 0,
-                'api_error': None,
-                'result_count': result_count
-            }
-            
-        except requests.exceptions.RequestException as e:
-            if attempt == max_retries - 1:  # Last attempt
-                return {
-                    'is_valid_format': True,
-                    'is_valid_api': False,
-                    'api_error': f"API request failed: {str(e)}",
-                    'result_count': 0
-                }
-            # Continue to next attempt
-            continue
-        except Exception as e:
-            return {
-                'is_valid_format': True,
-                'is_valid_api': False,
-                'api_error': f"Unexpected error: {str(e)}",
-                'result_count': 0
-            }
-    
-    return {
-        'is_valid_format': True,
-        'is_valid_api': False,
-        'api_error': "Max retries exceeded",
-        'result_count': 0
-    }
-
-def extract_npi_identifiers(identifiers):
-    """Extract NPI identifiers from identifier array"""
+def extract_npi_identifiers(identifiers, npi_validator):
+    """Extract NPI identifiers from identifier array with validation"""
     npis = []
     if not identifiers:
         return npis
@@ -135,23 +66,20 @@ def extract_npi_identifiers(identifiers):
         # Check for NPI system or if value looks like an NPI (10 digits)
         if ('us-npi' in system.lower() or 
             'npi' in system.lower() or 
-            is_valid_npi_format(value)):
+            NPIValidator._is_valid_npi_format(npi_value=value)):
             
-            # Skip API validation for now - use placeholder values for future implementation
-            # api_result = validate_npi_via_api(value)  # Commented out for performance
+            # Use NPIValidator to validate the NPI
+            is_valid = npi_validator.is_this_npi_valid(npi_value=value)
             
             npi_record = {
                 'system': system,
                 'value': value,
-                'is_valid': '?',  # Placeholder - will be implemented in future phase
-                'api_error': None,
-                'result_count': '?'  # Placeholder - will be implemented in future phase
+                'is_valid': is_valid,
+                'api_error': None,  # NPIValidator handles errors internally
+                'result_count': 1 if is_valid else 0
             }
             
             npis.append(npi_record)
-            
-            # No delay needed since we're not making API calls
-            # time.sleep(0.1)  # Commented out since no API calls
     
     return npis
 
@@ -330,7 +258,7 @@ def generate_hash_id(data_dict):
     data_str = json.dumps(data_dict, sort_keys=True)
     return hashlib.md5(data_str.encode()).hexdigest()[:16]
 
-def process_organization_file(file_path, vendor_name, endpoint_reference_to_url=None):
+def process_organization_file(file_path, vendor_name, npi_validator, endpoint_reference_to_url=None):
     """Process a single organization JSON file"""
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -357,7 +285,7 @@ def process_organization_file(file_path, vendor_name, endpoint_reference_to_url=
         endpoints = resource.get('endpoint', [])
         
         # Process each data type
-        npis = extract_npi_identifiers(identifiers)
+        npis = extract_npi_identifiers(identifiers, npi_validator)
         address_list = extract_addresses(addresses)
         phones, contact_urls, emails = extract_telecoms(telecoms)
         endpoint_list = extract_endpoints(endpoints, endpoint_reference_to_url)
@@ -386,6 +314,12 @@ def process_endpoint_file(file_path, vendor_name):
             data = json.load(f)
         
         resource = data.get('resource', {})
+
+        if resource.get('resourceType') != 'Bundle':
+            print(f"WARNING: This resource is a Bundle!! Look at {vendor_name} data for more info!!")
+
+
+
         if resource.get('resourceType') != 'Endpoint':
             return None
         
@@ -416,7 +350,7 @@ def main():
     parser = argparse.ArgumentParser(description='Extract CSV data from FHIR Organization JSON files')
     parser.add_argument('--input_dir', default='./data/service_json', 
                        help='Input directory containing vendor subdirectories with JSON files')
-    parser.add_argument('--output_dir', default='./output_data/normalized_csv_files',
+    parser.add_argument('--output_dir', default='./data/output_data/normalized_csv_files',
                        help='Output directory for CSV files')
     parser.add_argument('--test', action='store_true',
                        help='Test mode: only process first 1000 files per vendor for validation')
@@ -495,6 +429,10 @@ def main():
     
     print(f"Found {len(endpoint_reference_to_url)} endpoint mappings")
     
+    # Initialize NPI Validator
+    print("\nInitializing NPI Validator...")
+    npi_validator = NPIValidator()
+    
     # PASS 2: Process organization files with endpoint resolution
     print("\nPass 2: Processing organizations with endpoint resolution...")
     for vendor_dir in vendor_dirs:
@@ -512,7 +450,7 @@ def main():
         total_files += len(json_files)
         
         for json_file in json_files:
-            result = process_organization_file(json_file, vendor_name, endpoint_reference_to_url)
+            result = process_organization_file(json_file, vendor_name, npi_validator, endpoint_reference_to_url)
             
             if result is None:
                 continue
@@ -557,8 +495,8 @@ def main():
                 
                 # Process NPIs
                 for npi in result['npis']:
-                    # Since we're not doing API validation, use format validation for is_invalid_npi
-                    is_invalid = 0 if is_valid_npi_format(npi['value']) else 1
+                    # Use the validation result from NPIValidator
+                    is_invalid = 0 if npi['is_valid'] else 1
                     
                     org_to_npi.append({
                         'org_id': result['org_id'],

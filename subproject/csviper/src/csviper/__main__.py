@@ -7,6 +7,7 @@ import os
 import sys
 import click
 from .metadata_extractor import CSVMetadataExtractor
+from .script_invoker import CompiledScriptInvoker
 from .exceptions import CSViperError
 
 
@@ -172,6 +173,46 @@ def build_import_script(from_resource_dir, output_dir, overwrite_previous):
         click.echo(f"  python {os.path.basename(mysql_script_path)} --csv_file=<csv> [--db_schema_name=<schema>] [--table_name=<table>]")
         click.echo(f"  python {os.path.basename(postgresql_script_path)} --csv_file=<csv> [--db_schema_name=<schema>] [--table_name=<table>]")
         click.echo(f"\nNote: Schema and table names can be set via DB_SCHEMA and DB_TABLE environment variables")
+        
+    except CSViperError as e:
+        click.echo(f"{e}", err=True)
+        sys.exit(1)
+    except Exception as e:
+        click.echo(f"Unexpected Error: {e}", err=True)
+        sys.exit(1)
+
+
+@cli.command()
+@click.option('--run_import_from', required=True, type=click.Path(exists=True),
+              help='Directory containing compiled CSViper scripts and metadata')
+@click.option('--import_data_from_dir', required=True, type=click.Path(exists=True),
+              help='Directory to search for data files')
+@click.option('--database_type', required=True, type=click.Choice(['mysql', 'postgresql']),
+              help='Database type for import script selection')
+@click.option('--db_schema_name', type=str,
+              help='Database schema name to pass to the import script')
+@click.option('--table_name', type=str,
+              help='Table name to pass to the import script')
+def invoke_compiled_script(run_import_from, import_data_from_dir, database_type, db_schema_name, table_name):
+    """
+    Execute compiled import scripts with automatic file discovery.
+    
+    Finds the latest data file matching the pattern stored in metadata
+    and executes the appropriate database import script.
+    """
+    try:
+        # Convert to absolute paths
+        run_import_from = os.path.abspath(run_import_from)
+        import_data_from_dir = os.path.abspath(import_data_from_dir)
+        
+        # Execute the invoker
+        CompiledScriptInvoker.invoke_from_directory(
+            run_import_from=run_import_from,
+            import_data_from_dir=import_data_from_dir,
+            database_type=database_type,
+            db_schema_name=db_schema_name,
+            table_name=table_name
+        )
         
     except CSViperError as e:
         click.echo(f"{e}", err=True)

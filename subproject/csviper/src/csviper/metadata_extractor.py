@@ -7,6 +7,7 @@ import csv
 import json
 import hashlib
 import chardet
+import re
 from typing import Dict, Any, List
 from .column_normalizer import ColumnNormalizer
 from .exceptions import (
@@ -62,6 +63,21 @@ class CSVMetadataExtractor:
             error_msg += "Please manually edit the metadata.json file to ensure all normalized column names are unique."
             
             raise ValueError(error_msg)
+    
+    @staticmethod
+    def _generate_file_glob_pattern(filename: str) -> str:
+        """
+        Generate a glob pattern from a filename. Initially just returns the exact filename.
+        Users can manually edit the metadata.json file to customize the pattern for matching
+        similar files with different dates/versions.
+        
+        Args:
+            filename (str): Original filename
+            
+        Returns:
+            str: Glob pattern (initially just the exact filename)
+        """
+        return filename
     
     @staticmethod
     def fromFileToMetadata(full_path_to_csv_file: str, output_dir: str = None, overwrite_previous: bool = False) -> Dict[str, Any]:
@@ -131,10 +147,15 @@ class CSVMetadataExtractor:
         # Get encoding information for metadata
         detected_encoding = CSVMetadataExtractor._get_best_encoding(full_path_to_csv_file)
         
+        # Generate file glob pattern for invoker functionality
+        file_glob_pattern = CSVMetadataExtractor._generate_file_glob_pattern(filename)
+        
         # Build metadata dictionary
         metadata = {
             "filename": filename,
             "filename_without_extension": filename_without_ext,
+            "file_glob_pattern": file_glob_pattern,
+            "recursive_search": True,
             "full_path": full_path_to_csv_file,
             "file_size_bytes": file_size,
             "delimiter": delimiter,

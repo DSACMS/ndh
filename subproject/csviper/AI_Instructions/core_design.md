@@ -105,7 +105,25 @@ Separate modules for **MySQL** and **PostgreSQL** read the shared metadata and g
 
 ---
 
-## Phase 3: Data Loader Script Generation (Backend-Specific)
+
+## Phase 3: Manual editing of the CREATE TABLE statements
+
+TODO: this phase need to be implemented to prevent overwriting!! 
+
+
+This is the users opportunity to modify the contents of the CREATE TABLE syntax, changing variable names, types and ensuring that data will be store in the preferred manner. 
+Once the create table has been modified, it will not be altered. 
+
+To support this, the generated SQL should have a SQL comment as the first line: 
+
+```sql
+-- OverwriteThisOnNextCompile=True
+```
+Before overwriting a create table statement, the compiler should check this and not overwrite if this is set to anything but 'True'
+
+
+
+## Phase 4: Data Loader Script Generation (Backend-Specific)
 
 Instead of directly executing data loads, the system generates a standalone Python script that can later be run to perform the actual import.
 
@@ -124,7 +142,7 @@ This script should support:
 
 The --trample flag will overwrite the previous import of the data with this new one.
 
-## Phase 4: Post Import SQL
+## Phase 5: Post Import SQL
 
 Underneath the {output_dir} there should be a directory full of SQL files that are numbered in the order they should be executed.
 
