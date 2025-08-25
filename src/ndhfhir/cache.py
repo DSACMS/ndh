@@ -1,6 +1,7 @@
 from django.core.cache import cache
 import json
 from .models import OtherIdentifierType, FhirNameUse, NuccTaxonomyCode
+import sys
 
 
 def cacheData(model):
@@ -19,7 +20,8 @@ def cacheData(model):
         data = json.loads(data)
     return data
 
+if 'runserver' in sys.argv:
+    other_identifier_type = cacheData(OtherIdentifierType)
+    fhir_name_use = cacheData(FhirNameUse)
+    nucc_taxonomy_codes = cacheData(NuccTaxonomyCode)
 
-other_identifier_type = cacheData(OtherIdentifierType)
-fhir_name_use = cacheData(FhirNameUse)
-nucc_taxonomy_codes = cacheData(NuccTaxonomyCode)

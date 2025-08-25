@@ -8,10 +8,12 @@ NDH (soon to be renamed) is supported by a dedicated team of individuals fulfill
 | Role   | Name    | Affiliation    |
 | :----- | :------ | :------------- |
 | Product Manager | Julie Sossamon | DSAC |
+| Design Lead | Heather Myers | DSAC |
 | Technical Lead | Fred Trotter | DSAC |
-| Senior Software Engineer | Sarah Popelka | DSAC |
-| Designer | Heather Myers | DSAC |
-| Software Engineer | Sachin Panayil | DSAC |
+| Engineer | Sarah Popelka | DSAC |
+| Engineer | Blaine Price | DSAC |
+| Engineer | Sachin Panayil | USDC @ DSAC |
+| Engineer | Isaac Milarsky | USDC @ DSAC |
 
 See [CODEOWNERS.md](.github/CODEOWNERS.md) for a list of those responsible for the code and documentation in this repository.
 
@@ -52,6 +54,26 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for more details on the release process.
 Total number of contributors: <!--CONTRIBUTOR COUNT START--> <!--CONTRIBUTOR COUNT END-->
 
 <!-- readme: contributors -start -->
+<table>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/ftrotter-gov">
+                    <img src="https://avatars.githubusercontent.com/u/218619890?v=4" width="100;" alt="ftrotter-gov"/>
+                    <br />
+                    <sub><b>Fred Trotter</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/spopelka-dsac">
+                    <img src="https://avatars.githubusercontent.com/u/216547207?v=4" width="100;" alt="spopelka-dsac"/>
+                    <br />
+                    <sub><b>spopelka-dsac</b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
+</table>
 <table>
 	<tbody>
 		<tr>

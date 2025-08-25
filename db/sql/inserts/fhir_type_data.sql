@@ -43,3 +43,14 @@ INSERT INTO ndh.fhir_phone_use VALUES (3, 'temp');
 INSERT INTO ndh.fhir_phone_use VALUES (4, 'old');
 INSERT INTO ndh.fhir_phone_use VALUES (5, 'mobile');
 
+--
+-- Data for Name: other_identifier_type; Type: TABLE DATA; Schema: ndh; Owner: -
+--
+
+INSERT INTO ndh.other_identifier_type VALUES (1, 'OTHER');
+INSERT INTO ndh.other_identifier_type VALUES (2, 'MEDICARE UPIN');
+INSERT INTO ndh.other_identifier_type VALUES (4, 'MEDICARE ID-TYPE UNSPECIFIED');
+INSERT INTO ndh.other_identifier_type VALUES (5, 'MEDICAID');
+INSERT INTO ndh.other_identifier_type VALUES (6, 'MEDICARE OSCAR/CERTIFICATION');
+INSERT INTO ndh.other_identifier_type VALUES (7, 'MEDICARE NSC');
+INSERT INTO ndh.other_identifier_type VALUES (8, 'MEDICARE PIN');

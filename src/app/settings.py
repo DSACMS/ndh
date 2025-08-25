@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 from decouple import config
 import os
+from decouple import config
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +30,7 @@ SECRET_KEY = config('NDH_DJANGO_SECRET')
 DEBUG = bool(config('DEBUG'))
 
 if DEBUG:
-        ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 else:
     ALLOWED_HOSTS = config("DJANGO_ALLOWED_HOSTS").split(',')
 
@@ -37,7 +39,7 @@ INTERNAL_APIS = config("DJANGO_ALLOWED_HOSTS").split(',')
 # Application definition
 
 INSTALLED_APPS = [
-      'ndhfhir.apps.NDHFHIRConfig',
+    'ndhfhir.apps.NDHFHIRConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,9 +59,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware', # This must come at the end
+    'debug_toolbar.middleware.DebugToolbarMiddleware',  # This must come at the end
 ]
 
+ROOT_URLCONF = 'app.urls'
 ROOT_URLCONF = 'app.urls'
 
 TEMPLATES = [
@@ -90,7 +93,10 @@ DATABASES = {
         'PASSWORD': config('NDH_DB_PASSWORD'),
         'HOST': config('NDH_DB_HOST'),
         'NAME': config('NDH_DB_NAME'),
-        'PORT': config('NDH_DB_PORT')
+        'PORT': config('NDH_DB_PORT'),
+        'OPTIONS': {
+            'options': '-c search_path=ndh,public'
+        }
     }
 }
 
@@ -131,7 +137,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-#STATICFILES_DIRS = [
+# STATICFILES_DIRS = [
+#        os.path.join(BASE_DIR, "static"),
+#    ]
+
+# STATICFILES_DIRS = [
 #        os.path.join(BASE_DIR, "static"),
 #    ]
 
@@ -145,7 +155,7 @@ REST_FRAMEWORK = {
 }
 
 DEBUG_TOOLBAR_CONFIG = {
-      'SHOW_TOOLBAR_CALLBACK': lambda request: DEBUG
+    'SHOW_TOOLBAR_CALLBACK': lambda request: DEBUG
 }
 
 CACHES = {

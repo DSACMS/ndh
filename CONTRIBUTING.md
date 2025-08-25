@@ -19,19 +19,31 @@ We encourage you to read this project's CONTRIBUTING policy (you are here), its
 
 ### Team Specific Guidelines
 
-<!-- TODO: This section helps contributors understand any team structure in the project (formal or informal.) Encouraged to point towards the COMMUNITY.md file for further details.-->
+To be filled in after 8/20 meeting with Alberto.<!-- TODO: This section helps contributors understand any team structure in the project (formal or informal.) Encouraged to point towards the COMMUNITY.md file for further details.-->
 
 ### Building dependencies
 
-<!--- TODO: This step is often skipped, so don't forget to include the steps needed to install on your platform. If you project can be multi-platform, this is an excellent place for first time contributors to send patches!-->
+1. Ensure that either colima (if using macOS) or the docker service is running
+2. Python dependencies are handled via docker, so they will be built when running the `docker-compose up --build` command.
 
 ### Building the Project
 
-<!--- TODO: Be sure to include build scripts and instructions, not just the source code itself! -->
+#### Database Setup
+1. Create a local postgres server
+2. Create a database called ndh
+3. Execute the sql in `db/sql/schemas/ndh.sql` to create the ndh schema and associated tables
+4. Execute the sql in `db/sql/inserts/sample_data.sql` to load sample data into the database.
+
+#### Django App Setup
+1. Ensure that either colima (if using macOS) or the docker service is running
+2. Create a `.env` file in this directory, following the template of the `.env_template` file
+    * n.b. ensure that NDH_DB_HOST is set to `host.docker.internal` if using a local postgres instance.
+3. Run `docker-compose up --build` initially and following any changes
+4. Navigate to `http://localhost:8000` to ensure that the setup worked (you should see a Docker landing page if DEBUG is set to true).
+5. Happy coding!
 
 ### Workflow and Branching
 
-<!--- TODO: Workflow Example
 We follow the [GitHub Flow Workflow](https://guides.github.com/introduction/flow/)
 
 1.  Fork the project
@@ -42,11 +54,13 @@ We follow the [GitHub Flow Workflow](https://guides.github.com/introduction/flow
 6.  Work with repo maintainers to get your change reviewed
 7.  Wait for your change to be pulled into `DSACMS/ndh/main`
 8.  Delete your feature branch
--->
+
 
 ### Testing Conventions
+It is an expectation of this team that each feature will have associated unit tests written for it prior to opening a pull request, and that the tests should be passing.
 
-<!--- TODO: Discuss where tests can be found, how they are run, and what kind of tests/coverage strategy and goals the project has. -->
+#### Django App Tests
+Django app tests can be found in the `tests.py` folder for the app (e.g. `src/ndhfhir/tests.py`) Django tests can be run by navigating to the `src` directory and running `python manage.py test`. You can run specific tests by specifying the class and/or method that you want to test. Please refer to the [Django documentation](https://docs.djangoproject.com/en/5.2/topics/testing/overview/) on testing for additional details.
 
 ### Coding Style and Linters
 
@@ -60,8 +74,6 @@ We follow the [GitHub Flow Workflow](https://guides.github.com/introduction/flow
 -->
 
 ### Writing Issues
-
-<!--- TODO: Example Issue Guides
 
 When creating an issue please try to adhere to the following format:
 
@@ -80,11 +92,9 @@ When creating an issue please try to adhere to the following format:
     List all relevant steps to reproduce the observed behavior.
 
     see our .github/ISSUE_TEMPLATE.md for more examples.
--->
+
 
 ### Writing Pull Requests
-
-<!-- TODO: Make a brief statement about where to file pull/merge requests, and conventions for doing so. Link to PULL_REQUEST_TEMPLATE.md file.
 
 Comments should be formatted to a width no greater than 80 columns.
 
@@ -121,10 +131,12 @@ Some important notes regarding the summary line:
 * Prefix the subject with its scope
 
     see our .github/PULL_REQUEST_TEMPLATE.md for more examples.
--->
+
+
 
 ## Reviewing Pull Requests
 
+In this high velocity development time, we strive for a 24 hour turnaround on pull requests.
 <!--- TODO: Make a brief statement about how pull-requests are reviewed, and who is doing the reviewing. Linking to COMMUNITY.md can help.
 
 Code Review Example
@@ -379,11 +391,9 @@ In rare cases, a hotfix for a prior release may be required out-of-phase with th
 
 ## Documentation
 
-<!-- TODO: Documentation Example
-
 We also welcome improvements to the project documentation or to the existing
 docs. Please file an [issue](https://github.com/DSACMS/ndh/issues).
--->
+
 
 ## Policies
 

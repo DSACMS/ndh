@@ -11,7 +11,9 @@ from fhir.resources.coding import Coding
 from fhir.resources.period import Period
 from fhir.resources.meta import Meta
 from fhir.resources.address import Address
-from .cache import other_identifier_type, fhir_name_use, nucc_taxonomy_codes
+import sys
+if 'runserver' in sys.argv:
+    from .cache import other_identifier_type, fhir_name_use, nucc_taxonomy_codes
 
 
 class AddressSerializer(serializers.Serializer):
@@ -224,6 +226,7 @@ class PractitionerSerializer(serializers.Serializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
+        # print(type(instance))
         practitioner = Practitioner()
         practitioner.id = str(instance.npi.npi)
         practitioner.meta = Meta(
@@ -267,6 +270,7 @@ class BundleSerializer(serializers.Serializer):
         entries = []
 
         for resource in instance.data:
+            print(resource)
             # Get the resource type (Patient, Practitioner, etc.)
             resource_type = resource['resourceType']
             id = resource['id']

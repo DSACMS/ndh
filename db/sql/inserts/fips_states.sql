@@ -59,3 +59,4 @@ INSERT INTO ndh.fips_state VALUES ('69', 'Commonwealth of the Northern Mariana I
 INSERT INTO ndh.fips_state VALUES ('72', 'Puerto Rico', 'PR');
 INSERT INTO ndh.fips_state VALUES ('74', 'U.S. Minor Outlying Islands', 'UM');
 INSERT INTO ndh.fips_state VALUES ('78', 'United States Virgin Islands', 'VI');
+INSERT INTO ndh.fips_state VALUES ('00', 'Unknown', 'NA');
