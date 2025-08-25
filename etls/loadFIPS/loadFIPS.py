@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 class FIPSCountyETL:
-    def __init__(self, table_name: str = "ndh.fips_county"):
+    def __init__(self, table_name: str = "fips_county"):
         self.table_name = table_name
         self.max_retries = int(os.getenv("MAX_RETRIES", "3"))
 
@@ -113,7 +113,8 @@ class FIPSCountyETL:
                     con = con,
                     if_exists = "append",
                     index = False,
-                    method = "multi"
+                    method = "multi",
+                    schema = 'ndh'
                 )
 
             logger.info("Phase 3 - Loading has finished")
